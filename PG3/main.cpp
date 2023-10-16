@@ -1,46 +1,40 @@
 #include <stdio.h>
 
-template <typename T>
-T Min(T a, T b) {
+int Recursive(int time, int hourlyWage) {
 
-	if (a <= b) {
-		return static_cast<T>(a);
+	int wages = 0; //‹‹—¿
+	int nextHourlyWage = 0; //Ÿ‚Ì‹‹
+
+	wages = hourlyWage;
+
+	if (time - 1 > 0) {
+		nextHourlyWage = hourlyWage * 2 - 50;
+		wages += Recursive(time - 1, nextHourlyWage);
 	}
-	else {
-		return static_cast<T>(b);
-	}
-}
-
-template<>
-char Min<char>(char a, char b) {
-
-	printf("”šˆÈŠO‚Í‘ã“ü‚Å‚«‚Ü‚¹‚ñ");
-
-	return 0;
+	return wages;
 }
 
 int main() {
 
-	int intA = 114;
-	int intB = 514;
+	//’è”
+	const int kGeneralHourlyWage = 1072; //ˆê”Ê“I‚È’À‹à‘ÌŒn‚Ì‹‹
+	const int kRecursiveHourlyWage = 100; //Ä‹A“I‚È’À‹à‘ÌŒn‚ÌÅ‰‚Ì‹‹
 
-	float floatA = 8.10f;
-	float floatB = 19.1f;
+	//•Ï”
+	int time = 0; //“­‚­ŠÔ
+	int wages = 0; //‹‹—¿
 
-	double doubleA = 11.4;
-	double doubleB = 51.4;
+	//‰½ŠÔ“­‚­‚©
+	printf("‰½ŠÔ“­‚­‚©");
+	scanf_s("%d", &time);
 
-	char charA = 'A';
-	char charB = 'B';
+	//ˆê”Ê“I‚È’À‹à‘ÌŒn
+	wages = kGeneralHourlyWage * time;
+	printf("ˆê”Ê“I‚È’À‹à‘ÌŒn %d‰~\n", wages);
 
-	//intŒ^
-	printf("%d\n", Min<int>(intA, intB));
-	//floatŒ^
-	printf("%f\n", Min<float>(floatA, floatB));
-	//doubleŒ^
-	printf("%lf\n", Min<double>(doubleA, doubleB));
-	//charŒ^
-	Min<char>(charA, charB);
+	//Ä‹A“I‚È’À‹à‘ÌŒn
+	wages = Recursive(time, kRecursiveHourlyWage);
+	printf("Ä‹A“I‚È’À‹à‘ÌŒn %d‰~\n", wages);
 
 	return 0;
 }
