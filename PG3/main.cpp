@@ -21,14 +21,14 @@ char Min<char>(char a, char b) {
 
 int main() {
 
-	int intA = 10;
-	int intB = 20;
+	int intA = 114;
+	int intB = 514;
 
-	float floatA = 10.5f;
-	float floatB = 10.2f;
+	float floatA = 8.10f;
+	float floatB = 19.1f;
 
-	double doubleA = 10.3;
-	double doubleB = 10.8;
+	double doubleA = 11.4;
+	double doubleB = 51.4;
 
 	char charA = 'A';
 	char charB = 'B';
