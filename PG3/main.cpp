@@ -2,8 +2,8 @@
 
 int Recursive(int time, int hourlyWage) {
 
-	int wages = 0; //‹‹—¿
-	int nextHourlyWage = 0; //Ÿ‚Ì‹‹
+	int wages = 0; //çµ¦æ–™
+	int nextHourlyWage = 0; //æ¬¡ã®æ™‚çµ¦
 
 	wages = hourlyWage;
 
@@ -16,25 +16,23 @@ int Recursive(int time, int hourlyWage) {
 
 int main() {
 
-	//’è”
-	const int kGeneralHourlyWage = 1072; //ˆê”Ê“I‚È’À‹à‘ÌŒn‚Ì‹‹
-	const int kRecursiveHourlyWage = 100; //Ä‹A“I‚È’À‹à‘ÌŒn‚ÌÅ‰‚Ì‹‹
+	const int kGeneralHourlyWage = 1072; //ä¸€èˆ¬çš„ãªè³ƒé‡‘ä½“ç³»ã®æ™‚çµ¦
+	const int kRecursiveHourlyWage = 100; //å†å¸°çš„ãªè³ƒé‡‘ä½“ç³»ã®æœ€åˆã®æ™‚çµ¦
 
-	//•Ï”
-	int time = 0; //“­‚­ŠÔ
-	int wages = 0; //‹‹—¿
+	int time = 0; //åƒãæ™‚é–“
+	int wages = 0; //çµ¦æ–™
 
-	//‰½ŠÔ“­‚­‚©
-	printf("‰½ŠÔ“­‚­‚©");
+	//ä½•æ™‚é–“åƒãã‹
+	printf("ä½•æ™‚é–“åƒãã‹");
 	scanf_s("%d", &time);
 
-	//ˆê”Ê“I‚È’À‹à‘ÌŒn
+	//ä¸€èˆ¬çš„ãªè³ƒé‡‘ä½“ç³»
 	wages = kGeneralHourlyWage * time;
-	printf("ˆê”Ê“I‚È’À‹à‘ÌŒn %d‰~\n", wages);
+	printf("ä¸€èˆ¬çš„ãªè³ƒé‡‘ä½“ç³» %då††\n", wages);
 
-	//Ä‹A“I‚È’À‹à‘ÌŒn
+	//å†å¸°çš„ãªè³ƒé‡‘ä½“ç³»
 	wages = Recursive(time, kRecursiveHourlyWage);
-	printf("Ä‹A“I‚È’À‹à‘ÌŒn %d‰~\n", wages);
+	printf("å†å¸°çš„ãªè³ƒé‡‘ä½“ç³» %då††\n", wages);
 
 	return 0;
 }
