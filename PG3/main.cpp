@@ -14,7 +14,7 @@ T Min(T a, T b) {
 template<>
 char Min<char>(char a, char b) {
 
-	printf("”šˆÈŠO‚Í‘ã“ü‚Å‚«‚Ü‚¹‚ñ");
+	printf("æ•°å­—ä»¥å¤–ã¯ä»£å…¥ã§ãã¾ã›ã‚“");
 
 	return 0;
 }
@@ -33,13 +33,13 @@ int main() {
 	char charA = 'A';
 	char charB = 'B';
 
-	//intŒ^
+	//intï¿½^
 	printf("%d\n", Min<int>(intA, intB));
-	//floatŒ^
+	//floatï¿½^
 	printf("%f\n", Min<float>(floatA, floatB));
-	//doubleŒ^
+	//doubleï¿½^
 	printf("%lf\n", Min<double>(doubleA, doubleB));
-	//charŒ^
+	//charï¿½^
 	Min<char>(charA, charB);
 
 	return 0;
