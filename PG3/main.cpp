@@ -33,7 +33,7 @@ void DiceResult(int* userInput) {
 
 }
 
-void SetTimeOut(int second, PFunc p, int* funcArgument) {
+void SetTimeOut(PFunc p, int second, int* funcArgument) {
 
 	Sleep(second * 1000);
 
@@ -41,9 +41,22 @@ void SetTimeOut(int second, PFunc p, int* funcArgument) {
 
 }
 int main() {
+	// 変数
+	int userInput = 0;
 
-	char str[] = "あ";
-	printf("%s", str);
+	// 奇数か偶数入力受付
+	printf("偶数なら0、奇数なら1を入力\n");
+	do {
+		scanf_s("%d", &userInput);
+	} while (userInput != 0 && userInput != 1);
+
+	// 結果表示
+	printf("結果は");
+	PFunc p;
+	p = &DiceResult;
+	// 三秒待つ
+	SetTimeOut(p, 3, &userInput);
+
 	return 0;
 
 }
