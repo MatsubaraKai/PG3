@@ -6,7 +6,7 @@
 
 typedef void (*PFunc)(int*);
 
-void Result(int* userInput) {
+void DiceResult(int* userInput) {
 
 	int result = 0;
 	int answer = 0;
@@ -42,23 +42,8 @@ void SetTimeOut(int second, PFunc p, int* funcArgument) {
 }
 int main() {
 
-	// 変数
-	int userInput = 0;
-
-	// 奇数か偶数入力受付
-	printf("偶数なら0、奇数なら1を入力\n");
-	do {
-		scanf_s("%d", &userInput);
-	} while (userInput != 0 && userInput != 1);
-
-	// 結果表示
-	printf("結果は");
-	PFunc p;
-	p = &Result;
-
-	// 三秒待つ
-	SetTimeOut(3, p, &userInput);
-
+	char str[] = "あ";
+	printf("%s", str);
 	return 0;
 
 }
