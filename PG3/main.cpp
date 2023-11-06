@@ -1,10 +1,81 @@
 ﻿#include <iostream>
 #include <Windows.h>
+#include <stdio.h>
+
+class Enemy {
+
+public:
+	enum Phase {
+		PhaseProximity,
+		PhaseShooting,
+		PhaseWithdrawal
+	};
+
+public: // メンバ関数
+
+	void Initialize();
+	void Update();
+	void Proximity();
+	void Shooting();
+	void Withdrawal();
+
+private:
+
+	// メンバ関数ポインタのテーブル
+	static void (Enemy::* spFuncTable[])();
+
+	Phase phase_;
+};
+
+void (Enemy::* Enemy::spFuncTable[])() = {
+	&Enemy::Proximity, // 近接
+	&Enemy::Shooting,  // 射撃
+	&Enemy::Withdrawal // 離脱
+};
+
+void Enemy::Initialize()
+{
+	phase_ = Phase::PhaseProximity;
+}
+
+void Enemy::Update()
+{
+	// メンバ関数ポインタに入っている関数を呼び出す
+	(this->*spFuncTable[static_cast<size_t>(phase_)])();
+}
+
+void Enemy::Proximity()
+{
+	printf("近接\n");
+	phase_ = Phase::PhaseShooting;
+}
+
+void Enemy::Shooting()
+{
+	printf("射撃\n");
+	phase_ = Phase::PhaseWithdrawal;
+}
+
+void Enemy::Withdrawal()
+{
+	printf("離脱\n");
+	phase_ = Phase::PhaseProximity;
+}
 
 int main() {
 
-	char str[] = "あ";
-	printf("%s", str);
-	return 0;
+	// エネミー宣言
+	Enemy* enemy = new Enemy();
+	enemy->Initialize();
+	// 状態遷移回数
+	int n = 3;
 
+	for (size_t i = 0; i < n; i++) {
+		// エネミー更新
+		enemy->Update();
+		// 1秒待つ
+		Sleep(1000);
+	}
+	delete enemy;
+	return 0;
 }
