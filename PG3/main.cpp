@@ -7,7 +7,7 @@
 
 typedef void (*PFunc)(int*);
 
-void Result(int* userInput) {
+void DiceResult(int* userInput) {
 
 	int result = 0;
 	int answer = 0;
