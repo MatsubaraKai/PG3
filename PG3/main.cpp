@@ -6,9 +6,9 @@ class Enemy {
 
 public:
 	enum Phase {
-		PhaseProximity,
-		PhaseShooting,
-		PhaseWithdrawal
+		Approach,
+		Shot,
+		Leave
 	};
 
 public:
@@ -33,7 +33,7 @@ void (Enemy::* Enemy::spFuncTable[])() = {
 
 void Enemy::Initialize()
 {
-	phase_ = Phase::PhaseProximity;
+	phase_ = Phase::Approach;
 }
 
 void Enemy::Update()
@@ -44,19 +44,19 @@ void Enemy::Update()
 void Enemy::Proximity()
 {
 	printf("近接\n");
-	phase_ = Phase::PhaseShooting;
+	phase_ = Phase::Shot;
 }
 
 void Enemy::Shooting()
 {
 	printf("射撃\n");
-	phase_ = Phase::PhaseWithdrawal;
+	phase_ = Phase::Leave;
 }
 
 void Enemy::Withdrawal()
 {
 	printf("離脱\n");
-	phase_ = Phase::PhaseProximity;
+	phase_ = Phase::Approach;
 }
 
 int main() {
