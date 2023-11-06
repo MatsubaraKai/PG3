@@ -65,9 +65,7 @@ int main() {
 	Enemy* enemy = new Enemy();
 	enemy->Initialize();
 	// 状態遷移回数
-	int n = 3;
-
-	for (size_t i = 0; i < n; i++) {
+	for (size_t i = 0; i < 3; i++) {
 		// エネミー更新
 		enemy->Update();
 		// 1秒
