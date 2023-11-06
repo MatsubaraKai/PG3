@@ -11,7 +11,7 @@ public:
 		PhaseWithdrawal
 	};
 
-public: // メンバ関数
+public:
 
 	void Initialize();
 	void Update();
@@ -21,9 +21,7 @@ public: // メンバ関数
 
 private:
 
-	// メンバ関数ポインタのテーブル
 	static void (Enemy::* spFuncTable[])();
-
 	Phase phase_;
 };
 
@@ -40,7 +38,6 @@ void Enemy::Initialize()
 
 void Enemy::Update()
 {
-	// メンバ関数ポインタに入っている関数を呼び出す
 	(this->*spFuncTable[static_cast<size_t>(phase_)])();
 }
 
@@ -73,7 +70,7 @@ int main() {
 	for (size_t i = 0; i < n; i++) {
 		// エネミー更新
 		enemy->Update();
-		// 1秒待つ
+		// 1秒
 		Sleep(1000);
 	}
 	delete enemy;
