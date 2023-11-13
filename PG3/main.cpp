@@ -2,108 +2,74 @@
 #include <Windows.h>
 #include <stdio.h>
 
-class Number {
+class Food {
 
 public: // メンバ関数
 
-	Number() = default;
-	~Number() = default;
+	Food() = default;
+	~Food() = default;
 
 	virtual void NameDisplay() = 0;
 
 };
 
-class Zero : public Number {
+class Meat : public Food {
 
 public: // メンバ関数
 
-	Zero() = default;
-	~Zero() = default;
+	Meat() = default;
+	~Meat() = default;
 
 	virtual void NameDisplay();
 
 };
 
-void Zero::NameDisplay()
+void Meat::NameDisplay()
 {
-	printf("0\n");
+	printf("肉うまい\n");
 }
 
-class One : public Number {
+class Vegetable : public Food {
 
 public: // メンバ関数
 
-	One() = default;
-	~One() = default;
+	Vegetable() = default;
+	~Vegetable() = default;
 
 	virtual void NameDisplay();
 
 };
 
-void One::NameDisplay()
+void Vegetable::NameDisplay()
 {
-	printf("1\n");
+	printf("野菜うまい\n");
 }
 
-class Two : public Number {
+class Fruit : public Food {
 
 public: // メンバ関数
 
-	Two() = default;
-	~Two() = default;
+	Fruit() = default;
+	~Fruit() = default;
 
 	virtual void NameDisplay();
 
 };
 
-void Two::NameDisplay()
+void Fruit::NameDisplay()
 {
-	printf("2\n");
-}
-
-class Three : public Number {
-
-public: // メンバ関数
-
-	Three() = default;
-	~Three() = default;
-
-	virtual void NameDisplay();
-
-};
-
-void Three::NameDisplay()
-{
-	printf("3\n");
-}
-
-class Four : public Number {
-
-public: // メンバ関数
-
-	Four() = default;
-	~Four() = default;
-
-	virtual void NameDisplay();
-
-};
-
-void Four::NameDisplay()
-{
-	printf("4\n");
+	printf("果実うまい\n");
 }
 
 int main() {
 
-	Number* numbers[5];
-	numbers[0] = new Zero();
-	numbers[1] = new One();
-	numbers[2] = new Two();
-	numbers[3] = new Three();
-	numbers[4] = new Four();
+	Food* foods[3];
+	foods[0] = new Meat();
+	foods[1] = new Vegetable();
+	foods[2] = new Fruit();
 
-	for (size_t i = 0; i < 5; i++) {
-		numbers[i]->NameDisplay();
-		delete numbers[i];
+	for (size_t i = 0; i < 3; i++) {
+		foods[i]->NameDisplay();
+		delete foods[i];
 	}
 }
