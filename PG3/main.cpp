@@ -43,7 +43,7 @@ void Enemy::Update()
 
 void Enemy::Proximity()
 {
-	printf("近接\n");
+	printf("接近\n");
 	phase_ = Phase::Shot;
 }
 
