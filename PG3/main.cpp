@@ -1,47 +1,52 @@
 ﻿#include <iostream>
-#include <Windows.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
+#include <functional>
 
 template <typename T1, typename T2>
 class MyMath {
 public:
-
-	static double Min(T1 a, T2 b);
-};
-
-template<typename T1, typename T2>
-double  MyMath<T1, T2>::Min(T1 a, T2 b)
-{
-
-	if (static_cast<double>(a) < static_cast<double>(b)) {
-		return static_cast<double>(a);
+	T1 a;
+	T2 b;
+	MyMath(T1 a, T2 b) {
+		this->a = a;
+		this->b = b;
 	}
-
-	return static_cast<double>(b);
+	auto Min() {
+		return a <= (b) ? a : b;
+	};
+};
+void PrintNum(int num)
+{
+	printf("%d\n", num);
+}
+void PrintNum(float num)
+{
+	printf("%f\n", num);
+}
+void PrintNum(double num)
+{
+	printf("%lf\n", num);
 }
 
 int main() {
 
-	double result = 0.0;
+	MyMath<int, int> c1(81, 810);
+	MyMath<int, float> c2(810, 8.1f);
+	MyMath<int, double> c3(81, 8.1);
+	MyMath<float, float> c4(8.1f, -8.1f);
+	MyMath<float, double> c5(81.0f, 8.1);
+	MyMath<double, double> c6(0.81, 0.081);
+	
+	PrintNum(c1.Min());
+	PrintNum(c2.Min());
+	PrintNum(c3.Min());
+	PrintNum(c4.Min());
+	PrintNum(c5.Min());
+	PrintNum(c6.Min());
 
-	result = MyMath<int, int>::Min(8, 10);
-	printf("%f\n", result);
-
-	result = MyMath<int, float>::Min(8, 10.0f);
-	printf("%f\n", result);
-
-	result = MyMath<int, double>::Min(10, 8.1);
-	printf("%f\n", result);
-
-	result = MyMath<float, float>::Min(0.8f, 0.1f);
-	printf("%f\n", result);
-
-	result = MyMath<float, double>::Min(8.1f, 8.2);
-	printf("%f\n", result);
-
-	result = MyMath<double, double>::Min(81.0, 8.1);
-	printf("%f\n", result);
-
-
+	
 	return 0;
 }
